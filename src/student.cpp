@@ -110,6 +110,7 @@ bool kurungSeimbang(const string& ekspresi) {
         }
         else if (c == ')' || c == ']' || c == '}') {
             if (isEmpty(sKurung)) {
+                clear(sKurung);
                 return false;
             }
 
@@ -120,13 +121,15 @@ bool kurungSeimbang(const string& ekspresi) {
             if ((c == ')' && buka != '(') ||
                 (c == ']' && buka != '[') ||
                 (c == '}' && buka != '{')) {
+                clear(sKurung);
                 return false;
             }
         }
     }
 
+    bool seimbang = isEmpty(sKurung);
     clear(sKurung);
-    return true;
+    return seimbang;
 }
 
 // =============================================================================
